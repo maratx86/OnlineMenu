@@ -1,0 +1,175 @@
+
+.window {
+    min-height: 100px;
+    min-width: 100px;
+
+    margin: auto;
+
+    background: #dfecee;
+    visibility: visible;
+
+    border-radius: 20px;
+}
+
+.window-top {
+    background: #dc7d7d;
+    padding: 5px;
+
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.window-title {
+    display: flex;
+    margin-left: 5px;
+}
+
+.window-title-image {
+
+}
+
+.window-title-text {
+    font-family: "Arial Black";
+}
+
+.window-action-bar {
+
+}
+
+.window-action-element {
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+    padding: 5px;
+}
+
+.window-action-element-img {
+    height: 15px;
+    width: 15px;
+}
+
+.wae- {
+    display: flex;
+    align-items: center;
+
+    background: #DC7D7DFF;
+    border-radius: 5px;
+}
+.wae-:hover {
+    background: #FFD573;
+}
+
+.window-content {
+    word-wrap: break-word;
+
+    overflow: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #ff8484 transparent;
+    max-height: 400px;
+
+    padding: 10px 15px 10px 25px;
+    margin: 0;
+}
+
+.window-header {
+    font-size: 35px;
+}
+
+.window-data-action-container {
+    display: flex;
+    padding-left: 40%;
+    flex-wrap: wrap;
+
+    width: 60%;
+    justify-content: end;
+    align-items: center;
+}
+
+.window-data-container {
+    display: grid;
+    word-wrap: anywhere;
+}
+
+.window-data {
+    display: flex;
+
+    margin-bottom: 20px;
+}
+
+.window-button {
+    min-width: 50px;
+    min-height: 35px;
+
+    margin: 5px 0 5px 10px;
+
+    padding: 5px 10px;
+
+    border-radius: 10px;
+
+    color: #212121;
+    background-color: #44EB99;
+
+    cursor: pointer;
+}
+
+.window-button:disabled {
+    margin-right: 1px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    border: none;
+    color: #AEBBCA;
+    background-color: #C5F7DE;
+}
+
+.window-button-active {
+
+}
+
+.window-button-active:hover {
+
+}
+
+.window-button-not-active {
+
+}
+
+
+::-webkit-scrollbar {
+    background: transparent;
+    baseline-shift: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #FFD573;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+
+.window-scroll {
+    overflow: scroll;
+
+    padding-right: 5px;
+    scrollbar-width: thin;
+    max-height: 300px;
+    word-wrap: normal;
+}
+
+
+.window-button{
+    flex-grow: 1;
+}
+#user-text-area{
+    min-width: 100%;
+    min-height: 100px;
+    max-height: 350px;
+}
+.container{
+    display: flex;
+}
