@@ -1,0 +1,33 @@
+{% extends 'web/base.html' %}
+
+{% set title = 'Search' %}
+
+{% block container_content %}
+<form method="post" action="{{ url_for('web.query') }}">
+    {{ form.csrf_token }}
+    <div class="search-box">
+        {{ form.text(autocomplete='off') }}
+        <button type="submit">
+            <img src="{{ url_for('static', filename='img/search.svg') }}"/>
+        </button>
+    </div>
+</form>
+{% if view.has_results %}
+<div>
+    <p>Search Results: "<span>{{ view.text }}</span>"</p>
+    {% for section in view.sections %}
+    <section>
+    <div>
+        <h1>Section: "{{ section.title }}"</h1>
+        <p>Count: <span>{{ section.count }}</span></p>
+    </div>
+    {% for result in section.results %}
+        <a href="{{ result.link }}">{{ result.title }}</a>
+    {% endfor %}
+    </section>
+    {% endfor %}
+</div>
+{% else %}
+    <p>{{ _('There is no results') }}</p>
+{% endif %}
+{% endblock %}

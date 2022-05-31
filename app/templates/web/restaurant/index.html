@@ -1,0 +1,12 @@
+{% extends 'web/base.html' %}
+
+{% set title = 'R Index' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/restaurant/index.css') }}"/>
+{% endblock %}
+
+{% block container_content %}
+    <h1>{{ restaurant.title }}</h1>
+    <p>{{ restaurant.description }}</p>
+{% endblock %}

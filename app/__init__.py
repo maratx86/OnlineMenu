@@ -35,6 +35,8 @@ def get_locale():
 from app import auth
 from app import api
 from app import web
+from app import feedback
+from app import restaurant
 from app.admin import admin, init_app as admin_init_app
 from . import cli
 
@@ -43,3 +45,5 @@ admin_init_app(app)
 app.register_blueprint(api.app)
 app.register_blueprint(auth.app)
 app.register_blueprint(web.app)
+app.register_blueprint(restaurant.app)
+app.register_blueprint(feedback.app)

@@ -9,5 +9,5 @@ from .database import models
 
 def init_app(app):
     db.init_app(app)
-    migrate.init_app(app, db)
+    migrate.init_app(app, db, 'app/storage/database/migrations')
     db.create_all(app=app)

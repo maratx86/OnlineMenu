@@ -178,3 +178,27 @@ body{
     -webkit-text-fill-color: transparent;
     background-size: 200% auto;
 }
+
+.search-box {
+    display: flex;
+    background: #969696;
+    border-radius: 15px;
+    min-height: 20px;
+    overflow: hidden;
+    align-items: center;
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    width: calc(100% - 20px - 20px);
+    padding: 5px 10px;
+}
+
+.search-box button {
+    background: transparent;
+    border: none;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}

@@ -1,0 +1,59 @@
+{% extends 'web/base.html' %}
+
+{% set Title = _('Feedback Page') %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/editor.css') }}">
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/editor.js') }}"></script>
+{% endblock %}
+
+{% block container_content %}
+    <h1>{{ _('Feedback') }}</h1>
+    <form method="post">
+        {{ form.csrf_token }}
+        <div class="editor-pre-container-data">
+            <div class="editor-container-data">
+                {{ form.feedback_email.label }}
+                {{ form.feedback_email }}
+                <span class="editor-container-data-error">
+				    {% if form.feedback_email.errors %}
+                    {% for error in form.feedback_email.errors %}
+                        {{ error }}
+                    {% endfor %}
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+        <div class="editor-pre-container-data">
+            <div class="editor-container-data">
+                {{ form.feedback_theme.label }}
+                {{ form.feedback_theme }}
+                <span class="editor-container-data-error">
+				    {% if form.feedback_theme.errors %}
+                    {% for error in form.feedback_theme.errors %}
+                        {{ error }}
+                    {% endfor %}
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+        <div class="editor-pre-container-data">
+            <div class="editor-container-data">
+                {{ form.feedback_body.label }}
+                {{ form.feedback_body }}
+                <span class="editor-container-data-error">
+				    {% if form.feedback_body.errors %}
+                    {% for error in form.feedback_body.errors %}
+                        {{ error }}
+                    {% endfor %}
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+        <div class="editor-container-actions">
+            <button type="reset">{{ _('Reset') }}</button>
+            <button type="submit">{{ form.submit.label.text }}</button>
+        </div>
+    </form>
+{% endblock %}
