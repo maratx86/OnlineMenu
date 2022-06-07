@@ -28,7 +28,7 @@ def index():
 @app.route('/thanks/')
 def thanks():
     return render_template(
-        'feedback/main.html',
+        'feedback/thanks.html',
     )
 
 

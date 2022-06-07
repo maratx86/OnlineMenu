@@ -1,0 +1,16 @@
+{% extends 'web/base.html' %}
+
+{% set title = 'R Editor' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/restaurant/editor.css') }}"/>
+{% endblock %}
+
+{% block container_content %}
+    <form method="post">
+    {{ form.csrf_token }}
+    {{ form.title }}
+    {{ form.description }}
+    {{ form.submit }}
+    </form>
+{% endblock %}

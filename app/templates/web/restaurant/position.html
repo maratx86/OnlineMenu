@@ -1,22 +1,17 @@
 {% extends 'web/base.html' %}
 
-{% set title = 'R Menu' %}
+{% set title = 'R Position' %}
 
 {% block styles %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/restaurant/menu.css') }}"/>
 {% endblock %}
 
 {% block container_content %}
-    <h1>{{ menu.title }}</h1>
-    {% if menu.description %}
-    <p>{{ menu.description }}</p>
+    <h1>{{ position.title }}</h1>
+    {% if position.description %}
+    <p>{{ position.description }}</p>
     {% endif %}
-    <div>
-    {% for position in menu.positions %}
-        <a href="{{ url_for('r.position', restaurant_id=restaurant.id, menu_id=menu.id, position_id=position.position_id) }}">
-            {{ position.position.title }}</a><br>
-    {% endfor %}
-    </div>
+    <p>{{ position.cost }}</p>
     {% if view and view.text_buttons %}
         {% for b in view.text_buttons %}
             <button onclick="{{ b['onclick'] }}">{{ b['text'] }}</button>

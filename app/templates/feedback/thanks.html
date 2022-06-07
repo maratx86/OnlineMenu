@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'web/base.html' %}
 
-</body>
-</html>
+{% set Title = _('Feedback Page') %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/editor.css') }}">
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/editor.js') }}"></script>
+{% endblock %}
+
+{% block container_content %}
+    <h1>{{ _('Feedback') }}</h1>
+    <span>{{ _('Thank you for you time!')}}</span>
+{% endblock %}

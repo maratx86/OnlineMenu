@@ -6,7 +6,30 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/restaurant/index.css') }}"/>
 {% endblock %}
 
+{% block scripts %}
+    {% if worker %}
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/restaurant/worker.js') }}"></script>
+    {% endif %}
+{% endblock %}
+
 {% block container_content %}
-    <h1>{{ restaurant.title }}</h1>
-    <p>{{ restaurant.description }}</p>
+    <div style="display: flex; justify-content: space-between;">
+        <div>
+            <h1>{{ restaurant.title }}</h1>
+            <p>{{ restaurant.description }}</p>
+        </div>
+        <div id="qrcode"></div>
+    </div>
+
+    <div>
+    {% for menu in restaurant.menus %}
+        <a href="{{ url_for('r.menu', restaurant_id=restaurant.id, menu_id=menu.id) }}">{{ menu.title }}</a><br>
+    {% endfor %}
+    </div>
+    {% if view and view.text_buttons %}
+        {% for b in view.text_buttons %}
+            <button onclick="{{ b['onclick'] }}">{{ b['text'] }}</button>
+        {% endfor %}
+    {% endif %}
 {% endblock %}

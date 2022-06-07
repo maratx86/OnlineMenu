@@ -16,6 +16,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(124), index=True, unique=True)
     password = db.Column(db.String(124), index=True)
     reg_date = db.Column(db.DATETIME, default=datetime.datetime.utcnow)
+    positions = db.relationship('Worker', lazy='select', backref=db.backref('user', lazy='joined'))
 
     @property
     def fullname(self):
@@ -39,8 +40,11 @@ class Worker(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    restaurant_id = db.Column(db.Integer, db.ForeignKey('restaurants.id'), primary_key=True)
     role = db.Column(db.String(16))
-    user = db.relationship("User", backref=db.backref("users", uselist=False))
+
+    def __str__(self):
+        return 'Worker <{0} {1}>'.format(self.id, self.user)
 
 
 class Restaurant(db.Model):
@@ -50,6 +54,8 @@ class Restaurant(db.Model):
     title = db.Column(db.String(128), index=True)
     description = db.Column(db.String(1024))
     positions = db.relationship('Position', lazy='select', backref=db.backref('restaurant', lazy='joined'))
+    menus = db.relationship('Menu', lazy='select', backref=db.backref('restaurant', lazy='joined'))
+    workers = db.relationship('Worker', lazy='select', backref=db.backref('restaurant', lazy='joined'))
 
     def __str__(self):
         return 'Restaurant <{0}>'.format(self.id)
@@ -62,7 +68,6 @@ class Menu(db.Model):
     title = db.Column(db.String(128), index=True)
     description = db.Column(db.String(1024))
     restaurant_id = db.Column(db.Integer, db.ForeignKey('restaurants.id'))
-    restaurant = db.relationship("Restaurant", backref=db.backref("menus", uselist=False))
     positions = db.relationship('MenuPosition', lazy='select', backref=db.backref('menu', lazy='joined'))
 
     def __str__(self):

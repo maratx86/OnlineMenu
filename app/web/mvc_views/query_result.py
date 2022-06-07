@@ -9,8 +9,8 @@ class SectionResult:
         self.title = obj.title
         if isinstance(obj, app.storage.database.models.Restaurant):
             self.link = url_for('r.index', restaurant_id=obj.id)
-        elif isinstance(obj, app.storage.database.models.Position):
-            self.link = url_for('r.position', restaurant_id=obj.restaurant_id, position_id=obj.id)
+        #elif isinstance(obj, app.storage.database.models.Position):
+        #    self.link = url_for('r.not_position', restaurant_id=obj.restaurant_id, position_id=obj.id)
         elif isinstance(obj, app.storage.database.models.Menu):
             self.link = url_for('r.menu', restaurant_id=obj.restaurant_id, menu_id=obj.id)
         else:

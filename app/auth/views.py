@@ -68,4 +68,7 @@ def reg():
 def logout():
     if current_user.is_authenticated:
         logout_user()
-    return 'logout'
+    return render_template(
+        'auth/logout.html',
+        notification_message=_("Log out successful"),
+    )

@@ -12,15 +12,25 @@
 </head>
 <body>
     <div class="header">
-        <div class="header_item-logo" onclick="location.href = '/'">
-            <a class="top_home_link" href="/" aria-label="Main page">
-                <img class="logotype" src="{{ url_for('static', filename='img/logo.svg') }}">
-            </a>
+        <div class="header_item">
+            <div class="header_item-logo" onclick="location.href = '/'">
+                <a class="top_home_link" href="/" aria-label="Main page">
+                    <img class="logotype" src="{{ url_for('static', filename='img/logo.svg') }}">
+                </a>
+            </div>
+            <splitter></splitter>
+            {% if view %}
+            {% if view.img %}
+                <img class="logotype" src="{{ view.img }}"/>
+            {% endif %}
+            {% if view.title %}
+            <div class="header_item-text">
+                {{ view.title }}
+            </div>
+            {% endif %}
+            {% endif %}
         </div>
 
-        <div class="header_item-text">
-
-        </div>
         <div class="header__menu">
             {% if user %}
             {% if user['is_authenticated'] %}
